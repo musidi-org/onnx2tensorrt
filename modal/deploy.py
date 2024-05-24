@@ -11,12 +11,12 @@ image = Image.from_registry(
   'nvcr.io/nvidia/tensorrt:24.02-py3',
   add_python="3.11"
 ).pip_install(
-  'python-dotenv==1.0.1', 'tensorrt==10.0.1'
+  'python-dotenv==1.0.1', 'tensorrt==10.0.1', 'onnx==1.16.1'
 )
 
-timeout = 60 * 60 * 12
+timeout = 60 * 60 * 2
 
-@app.function(image=image, container_idle_timeout=2, timeout=timeout, cpu=1, gpu='t4')
+@app.function(image=image, container_idle_timeout=2, timeout=timeout, cpu=0.25, gpu='t4')
 @web_endpoint()
 def t4_1():
   return tuneModel('package/test.onnx')
