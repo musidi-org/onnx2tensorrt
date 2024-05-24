@@ -8,21 +8,9 @@ Server deployment is mandatory for running this app. The fullstack app does not 
 1. Create a [Modal](https://modal.com/) account.
 Low usage should fit within the $30 monthly free tier.
 
-2. Create `.env` file in project root for Modal backend deployment:
-```
-APP_NAME=
-MODAL_WORKSPACE=
-```
+2. Create 2 [Cloudflare](https://www.cloudflare.com/) R2 buckets with access key
 
-3. Install python package and deploy:
-```
-poetry install
-pnpm run deploy:modal
-```
-
-4. Create 2 [Cloudflare](https://www.cloudflare.com/) R2 buckets with access key
-
-5. Create a Modal secret:
+3. Create a Modal secret:
 ```
 ONNX_BUCKET=
 TRT_BUCKET=
@@ -30,6 +18,18 @@ S3_ENDPOINT=
 S3_KEY_ID=
 S3_KEY=
 REGION_NAME=auto
+```
+
+4. Create `.env` file in project root for Modal backend deployment:
+```
+APP_NAME=
+MODAL_WORKSPACE=
+```
+
+5. Install python package and deploy:
+```
+poetry install
+pnpm run deploy:modal
 ```
 
 ## Attribution
