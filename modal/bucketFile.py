@@ -11,17 +11,7 @@ bucketClient = boto3.client('s3',
 )
 
 def downloadBucketFile(filePath, bucketName, bucketKey):
-  try:
-    bucketClient.download_file(bucketName, bucketKey, filePath)
-    return True
-  except Exception as error:
-    print(error)
-    return False
+  bucketClient.download_file(bucketName, bucketKey, filePath)
 
 def uploadBucketFile(filePath, bucketName, bucketKey):
-  try:
-    bucketClient.upload_file(filePath, bucketName, bucketKey)
-    return True
-  except Exception as error:
-    print(error)
-    return False
+  bucketClient.upload_file(filePath, bucketName, bucketKey)
