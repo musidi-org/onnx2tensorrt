@@ -36,7 +36,7 @@ def tuneModel(modelKey):
   downloadBucketFile(modelPath, os.environ['ONNX_BUCKET'], modelKey)
   timeStamp.stampPrint(f'DOWNLOAD ONNX MODEL:')
 
-  conversionResult = os.system(f'trtexec --onnx={modelPath} --fp16 --saveEngine={enginePath}')
+  conversionResult = os.system(f'trtexec --onnx={modelPath} --best --saveEngine={enginePath}')
   if conversionResult != 0:
     print('CONVERSION FAILED')
   timeStamp.stampPrint(f'CREATE TENSORRT ENGINE:')
