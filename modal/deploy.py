@@ -7,7 +7,7 @@ from util import tuneModel
 
 app = App(name=os.environ.get('APP_NAME'))
 image = Image.from_registry(
-  'nvcr.io/nvidia/tensorrt:24.02-py3',
+  'nvcr.io/nvidia/tensorrt:24.04-py3',
   add_python="3.11"
 ).pip_install(
   'python-dotenv==1.0.1', 'boto3==1.34.112'
